@@ -1,9 +1,5 @@
 import os
-<<<<<<< HEAD
-from flask import Flask, render_template, send_file, redirect
-=======
-from flask import Flask, render_template, send_file, redirect 
->>>>>>> 289538a (Update view_pdf route to redirect to Google Drive)
+from flask import Flask, render_template, send_file, redirect, url_for
 from calculations.calculation1 import exp1_bp
 from calculations.calculation2 import exp2_bp
 from calculations.calculation3 import exp3_bp
@@ -42,14 +38,10 @@ def index():
 
 @app.route('/view_pdf')
 def view_pdf():
-    # Google Drive preview link
-    pdf_url = "https://drive.google.com/file/d/1oAKSQEotat3-estig18W2_i9f3Xj78yv/preview"
-    return redirect(pdf_url)
-<<<<<<< HEAD
-    
-=======
+    return redirect(url_for('static', filename='CHEMISTRY_RECORD.pdf'))
 
->>>>>>> 289538a (Update view_pdf route to redirect to Google Drive)
+
+
 @app.route('/calculations')
 def calculations():
     return render_template('experiments.html', experiments=EXPERIMENTS)
